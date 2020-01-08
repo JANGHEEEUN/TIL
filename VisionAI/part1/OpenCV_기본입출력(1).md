@@ -270,7 +270,7 @@ cv2.destroyAllWindows()
   cv2.destroyAllWindows()
   ```
 
-  <img src="./image/image-20200109002445200.png" alt="image-20200109002445200" style="zoom:33%;" />  
+  <img src="./image/image-20200109002445200.png" alt="image-20200109002445200" style="zoom:20%;" />   
 
   
 
@@ -327,7 +327,7 @@ cv2.destroyAllWindows()
   cv2.destroyAllWindows()
   ```
 
-  <img src="./image/image-20200109002209786.png" style="zoom:50%;" />  
+  <img src="./image/image-20200109002209786.png" style="zoom:30%;" />   
 
   
 
@@ -372,7 +372,7 @@ cv2.destroyAllWindows()
   cv2.destroyAllWindows()
   ```
 
-  <img src="./image/image-20200109003014772.png" alt="image-20200109003014772" style="zoom:33%;" /> 
+  <img src="./image/image-20200109003014772.png" alt="image-20200109003014772" style="zoom:20%;" /> 
 
 
 
@@ -560,8 +560,9 @@ cv2.destroyAllWindows()
   - `onChange`: 트랙바 이벤트 핸들러 함수
 
 - `TrackbarCallback(value)`: 트랙바 이벤트 핸들러 함
-  - `value`: 트랙바가 움직인 새 위치 값
-
+  
+- `value`: 트랙바가 움직인 새 위치 값
+  
 - `pos = cv2.getTrackbarPos(trackbar_name, win_name)`
 
   - `pos`: 트랙바 위치 값
@@ -591,7 +592,7 @@ cv2.destroyAllWindows()
   cv2.destroyAllWindows()
   ```
 
-  <img src="./image/image-20200109010601128.png" alt="image-20200109010601128" style="zoom:50%;" />  
+  <img src="./image/image-20200109010601128.png" alt="image-20200109010601128" style="zoom:20%;" />   
 
 
 
