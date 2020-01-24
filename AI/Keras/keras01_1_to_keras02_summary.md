@@ -111,3 +111,28 @@ print(aaa)
 
 
 
+# keras02_summary
+
+#### 1. Hypothesis
+
+- Linear Regression에서 사용하는 1차 방정식을 가리키는 용어
+
+- H(x) = Wx + b
+
+  `W`: 가중치 - 그래프의 기울기
+
+  `b`: bias
+
+- 만약 2차 방정식 형태로 데이터가 분포한다면 미분
+
+  `y' = 2ax +b` = `y'=Wx+b`
+
+  
+
+#### 2. summary
+
+```python
+model.summary()
+```
+
+<img src="image/image-20200124222113687.png" alt="image-20200124222113687" style="zoom:67%;" /> 
