@@ -30,7 +30,7 @@ model.add(Dense(1))
 
 - `Sequential` 모델: 계층을 `선형`으로 쌓은 것
 
-  <img src="../../../../%EC%9E%A5%ED%9D%AC%EC%9D%80TILAIKerasimage/1_ytBUCmhkAucJ5imsNfAyfQ-1579863741072.png" style="zoom:70%;" /> 
+  ![](./image/1_ytBUCmhkAucJ5imsNfAyfQ.png) 
 
   - 첫 번째 계층에 `input_shape` 인수를 전달
 
