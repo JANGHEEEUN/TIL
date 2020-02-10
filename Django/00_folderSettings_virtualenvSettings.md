@@ -32,5 +32,5 @@
    django-admin startproject site_1
    ```
 
-   ![image-20200210170952631](./image/image-20200210170952631.png) 
+   ![image-20200210170952631](./Image/image-20200210170952631.png) 
 
