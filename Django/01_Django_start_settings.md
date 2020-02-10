@@ -98,7 +98,7 @@
   python manage.py startapp lotto
   ```
 
-  ![image-20200210171328049](./Image\image-20200210171328049.png) 
+  ![image-20200210171328049](./Image/image-20200210171328049.png) 
 
   
 

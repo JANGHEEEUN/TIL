@@ -10,7 +10,7 @@
   python manage.py runserver
   ```
 
-  ![image-20200210171446438](./Image\image-20200210171446438.png) 
+  ![image-20200210171446438](./Image/image-20200210171446438.png) 
 
 
 
@@ -18,7 +18,7 @@
 
 - Main 화면
 
-  ![image-20200210171600005](./Image\image-20200210171600005.png) 
+  ![image-20200210171600005](./Image/image-20200210171600005.png) 
 
 
 
