@@ -36,7 +36,7 @@ tensorboard --logdir=./graph
 
 
 
-![image-20200131102123032](C:\Users\student\Desktop\TIL\AI\Keras\image\image-20200131102123032.png) 
+![image-20200131102123032](./image/image-20200131102123032.png) 
 
 
 
@@ -44,4 +44,4 @@ tensorboard --logdir=./graph
 
 localhost:6006으로 이동
 
-![image-20200131102257389](C:\Users\student\Desktop\TIL\AI\Keras\image\image-20200131102257389.png)
+![image-20200131102257389](./image/image-20200131102257389.png)
