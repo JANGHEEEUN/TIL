@@ -83,4 +83,5 @@
 
   input이 output에 영향을 끼치도록 함: mirror padding을 진행할 때 손실되는 path를 살리기 위해 contracting path의 데이터를 적당한 크기로 잘라낸 후 concat하는 방식으로 이미지 보상 처리 진행
 
-![img](../AI/Keras/image/image-1582632556891.png)
+![img](./openCV/image/image.png) 
+
