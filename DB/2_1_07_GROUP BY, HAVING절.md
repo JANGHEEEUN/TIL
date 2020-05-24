@@ -192,4 +192,82 @@
 
 #### 4. CASE 표현을 활용한 월별 데이터 집계
 
-ffff
+
+
+#### 5. 집계 함수와 NULL
+
+- 리포트의 빈칸을 NULL이 아닌 ZERO로 표현하기 위해 NVL/ISNULL 함수를 사용하는 경우가 많음
+
+  하지만, 다중 행 함수를 사용하는 경우 오히려 불필요한 부하가 발생
+
+- 다중행 함수는 입력 값으로 전체 건수가 NULL 값인 함수의 결과만 NULL이 나오고 전체 건수 중 일부만 NULL인 경우는 NULL인 행을 다중 행 함수 대상에서 제외
+
+  EX) 100명 중 10명의 성적이 NULL값일 때 AVG를 사용하면 90명 성적에 대한 평균값을 구함
+
+- CASE 표현 사용시 ELSE 절을 생략하면 DEFAULT가 NULL
+
+  NULL은 연산 대상이 아닌 반면 ELSE에 0을 지정하게 되면 불필요하게 0이 SUM연산에 사용되므로 자원의 사용이 많아짐
+
+  같은 결과를 얻는다면 ELSE 절의 상수 값을 지정하지 않거나 ELSE 절을 작성하지 않도록 함
+
+- 같은 이유로, ORACLE의 DECODE 함수는 4번째 인수를 지정하지 않으면 NULL이 DEFAULT로 할당
+
+- 리포트 출력 시 NULL이 아닌 0을 표시하고 싶은 경우에
+
+  `NVL(SUM(SAL), 0)`이나, `ISNULL(SUM(SAL), 0)` 처럼 SUM 결과가 NULL인 경우에만 NVL/ISNULL함수를 사용하면 됨
+
+- 예제 - 팀별 포지션별 FW, MF, DF, GK 포지션의 인원수와 팀별 전체 인원수를 구하는 SQL 문장 작성, 데이터가 없는 경우에는 0으로 표시
+
+  - SIMPLE_CASE_EXPRESSION
+
+    ```SQL
+    SELECT TEAM_ID,
+    		NVL(SUM(CASE POSITION WHEN 'FW' THEN 1 ELSE 0 END), 0) FW,
+    		NVL(SUM(CASE POSITION WHEN 'MF' THEN 1 ELSE 0 END), 0) MF,
+    		NVL(SUM(CASE POSITION WHEN 'DF' THEN 1 ELSE 0 END), 0) DF,
+    		NVL(SUM(CASE POSITION WHEN 'GK' THEN 1 ELSE 0 END), 0) GK,
+    		COUNT(*) SUM 
+    FROM PLAYER
+    GROUP BY TEAM_ID;
+    ```
+
+  - SIMPLE_CASE_EXPRESSION - ORACLE CASE 표현의 ELSE 0, ELSE NULL 문구 생략 가능
+
+    ```SQL
+    SELECT TEAM_ID,
+    		NVL(SUM(CASE POSITION WHEN 'FW' THEN 1 END), 0) FW,
+    		NVL(SUM(CASE POSITION WHEN 'MF' THEN 1 END), 0) MF,
+    		NVL(SUM(CASE POSITION WHEN 'DF' THEN 1 END), 0) DF,
+    		NVL(SUM(CASE POSITION WHEN 'GK' THEN 1 END), 0) GK,
+    		COUNT(*) SUM 
+    FROM PLAYER
+    GROUP BY TEAM_ID;
+    ```
+
+  - SEARCHED_CASE_EXPRESSION - ORACLE
+
+    ```SQL
+    SELECT TEAM_ID,
+    	   NVL(SUM(CASE WHEN POSITION='FW' THEN 1 END), 0) FW,
+    	   NVL(SUM(CASE WHEN POSITION='MF' THEN 1 END), 0) MF,
+    	   NVL(SUM(CASE WHEN POSITION='DF' THEN 1 END), 0) DF,
+    	   NVL(SUM(CASE WHEN POSITION='GK' THEN 1 END), 0) GK,
+    	   COUNT(*) SUM
+    FROM PLAYER
+    GROUP BY TEAM_ID;
+    ```
+
+  - SEARCHED_CASE_EXPRESSION - SQL
+
+    ```SQL
+    SELECT TEAM_ID,
+    	   ISNULL(SUM(CASE WHEN POSITION='FW' THEN 1 END), 0) FW,
+    	   ISNULL(SUM(CASE WHEN POSITION='MF' THEN 1 END), 0) MF,
+    	   ISNULL(SUM(CASE WHEN POSITION='DF' THEN 1 END), 0) DF,
+    	   ISNULL(SUM(CASE WHEN POSITION='GK' THEN 1 END), 0) GK,
+    	   COUNT(*) SUM
+    FROM PLAYER
+    GROUP BY TEAM_ID;
+    ```
+
+    
